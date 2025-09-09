@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transparencia Conectada</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-firestore-compat.js"></script>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; }
+    .bg-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card:hover { transform: translateY(-5px); transition: 0.3s; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg fixed w-full z-10 top-0">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-indigo-700">Transparencia Conectada</h1>
+      <div class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="#inicio" class="hover:text-indigo-600">Inicio</a>
+        <a href="#transparencia" class="hover:text-indigo-600">Transparencia</a>
+        <a href="#participacion" class="hover:text-indigo-600">Participación</a>
+        <a href="#servicios" class="hover:text-indigo-600">Servicios</a>
+        <a href="#contacto" class="hover:text-indigo-600">Contacto</a>
+      </div>
+      <button id="btnLogin" class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-indigo-700">
+        Iniciar Sesión →
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="pt-32 pb-20 px-6 text-center bg-gradient text-white">
+    <h2 class="text-4xl font-extrabold mb-4">Una plataforma ética, modular y pública</h2>
+    <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+      Que redefine la interacción entre ciudadanía y gobierno, promoviendo la transparencia institucional y la participación ciudadana.
+    </p>
+    <button class="bg-white text-indigo-700 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 shadow-lg">
+      Explorar Portal →
+    </button>
+  </section>
+
+  <!-- Transparencia -->
+  <section id="transparencia" class="py-20 px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12 text-gray-800">Transparencia Total</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-md card">
+          <h3 class="text-xl font-bold text-indigo-600 mb-4">Presupuesto Público</h3>
+          <p>Visualización detallada del presupuesto gubernamental en tiempo real. 100% de fondos públicos registrados.</p>
+          <a href="#" class="mt-4 inline-block text-indigo-600 font-semibold">Acceder al Portal →</a>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-md card">
+          <h3 class="text-xl font-bold text-indigo-600 mb-4">Portal de Transparencia en Tiempo Real</h3>
+          <p>Monitorea el uso de recursos, decisiones y avances de proyectos en vivo.</p>
+          <a href="#" class="mt-4 inline-block text-indigo-600 font-semibold">Acceder al Portal →</a>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-md card">
+          <h3 class="text-xl font-bold text-indigo-600 mb-4">Información Gubernamental</h3>
+          <p>Acceso completo a contratos, decisiones y reportes oficiales.</p>
+          <a href="#" class="mt-4 inline-block text-indigo-600 font-semibold">Ver Información →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Participación Ciudadana -->
+  <section id="participacion" class="py-20 px-6 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12 text-gray-800">Participación Ciudadana</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Consultas Ciudadanas</h3>
+          <p>Participa en decisiones importantes.</p>
+          <a href="#consulta" class="mt-3 block text-indigo-600 font-semibold">Votar Ahora →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Propuestas Ciudadanas</h3>
+          <p>Presenta ideas para mejorar tu comunidad.</p>
+          <a href="#proposicion" class="mt-3 block text-indigo-600 font-semibold">Proponer Idea →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Foros de Debate</h3>
+          <p>Debate temas públicos con vecinos y expertos.</p>
+          <a href="#" class="mt-3 block text-indigo-600 font-semibold">Unirse al Debate →</a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Eventos Participativos</h3>
+          <p>Asiste a reuniones y foros en tu zona.</p>
+          <a href="#" class="mt-3 block text-indigo-600 font-semibold">Ver Eventos →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Propuesta -->
+  <section id="proposicion" class="py-20 px-6 bg-white">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Presenta tu Propuesta</h2>
+      <form id="formPropuesta" class="space-y-6">
+        <input type="text" placeholder="Nombre completo" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500" required />
+        <input type="email" placeholder="Correo electrónico" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500" required />
+        <textarea placeholder="Describe tu idea..." rows="5" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500" required></textarea>
+        <button type="submit" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 w-full">
+          Enviar Propuesta →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Consulta Pública -->
+  <section id="consulta" class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Consulta Pública: Presupuesto Participativo 2025</h2>
+      <p class="text-center mb-8 text-gray-600">¿Cómo invertir $2 millones en proyectos de tu comunidad?</p>
+      <div class="bg-white p-8 rounded-xl shadow text-center">
+        <p class="text-lg mb-6">¿Qué proyecto prefieres?</p>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="opcion" value="parque" class="mr-2" />
+            Parque comunitario en colonia San Juan
+          </label>
+          <label class="block">
+            <input type="radio" name="opcion" value="iluminacion" class="mr-2" />
+            Mejorar iluminación en zonas rurales
+          </label>
+          <label class="block">
+            <input type="radio" name="opcion" value="educacion" class="mr-2" />
+            Escuela inclusiva para niños con discapacidad
+          </label>
+        </div>
+        <button type="button" id="btnVotar" class="mt-6 bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700">
+          Votar →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Digitales -->
+  <section id="servicios" class="py-20 px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-12 text-gray-800">Servicios Digitales (24/7)</h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Certificados Digitales</h3>
+          <p>Obten certificados oficiales en 5 minutos.</p>
+          <span class="inline-block mt-2 bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Disponible</span>
+          <a href="#" class="block mt-3 text-indigo-600 font-semibold">Acceder →</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Pagos de Impuestos</h3>
+          <p>Paga tus impuestos en 2 minutos.</p>
+          <span class="inline-block mt-2 bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Disponible</span>
+          <a href="#" class="block mt-3 text-indigo-600 font-semibold">Acceder →</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Permisos y Licencias</h3>
+          <p>Solicita permisos en 24 horas.</p>
+          <span class="inline-block mt-2 bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Disponible</span>
+          <a href="#" class="block mt-3 text-indigo-600 font-semibold">Acceder →</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="font-bold text-indigo-600 mb-2">Atención Ciudadana</h3>
+          <p>Reporta baches o problemas en segundos.</p>
+          <span class="inline-block mt-2 bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Disponible</span>
+          <a href="#" class="block mt-3 text-indigo-600 font-semibold">Acceder →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8 text-gray-800">Contacto y Colaboración</h2>
+      <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow">
+        <p class="mb-4"><strong>Email:</strong> fannydesignstyle@outlook.com</p>
+        <p class="mb-4"><strong>Teléfono:</strong> +52 951 743 9204</p>
+        <p class="mb-6"><strong>Ubicación:</strong> Oaxaca, México</p>
+        <p class="text-sm text-gray-600">
+          © 2025 Transparencia Conectada. Todos los derechos reservados.<br>
+          Creada por el Proyecto Fanny Design Style, bajo la dirección de Estefanía Pérez Vázquez.<br>
+          Institución independiente del gobierno del estado de Oaxaca, con enfoque en participación ciudadana sin fines de lucro.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 text-sm bg-gray-800 text-white">
+    <p>Plataforma • Acerca de • Cómo Funciona • Principios Éticos • Seguridad • Servicios Digitales • Transparencia • Participación • Soporte Técnico • Legal • Accesibilidad</p>
+  </footer>
+
+  <!-- Firebase Config -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDQxkRvWlPbXZmYdKjLrMnOqSvWxYzBc",
+      authDomain: "transparencia-conectada.firebaseapp.com",
+      projectId: "transparencia-conectada",
+      storageBucket: "transparencia-conectada.appspot.com",
+      messagingSenderId: "1234567890",
+      appId: "1:1234567890:web:abcdef1234567890"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+
+    // Manejo de login
+    document.getElementById("btnLogin").addEventListener("click", () => {
+      auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then(() => alert("¡Bienvenido!"))
+        .catch(err => alert("Error: " + err.message));
+    });
+
+    // Envío de propuesta
+    document.getElementById("formPropuesta").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nombre = e.target[0].value;
+      const email = e.target[1].value;
+      const idea = e.target[2].value;
+
+      await db.collection("propuestas").add({
+        nombre,
+        email,
+        idea,
+        fecha: new Date()
+      });
+
+      alert("¡Gracias por tu propuesta!");
+      e.target.reset();
+    });
+
+    // Votación
+    document.getElementById("btnVotar").addEventListener("click", () => {
+      const opcion = document.querySelector('input[name="opcion"]:checked');
+      if (!opcion) return alert("Selecciona una opción");
+
+      alert(`¡Gracias por votar por "${opcion.value}"!`);
+    });
+  </script>
+
+</body>
+</html>
